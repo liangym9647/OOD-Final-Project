@@ -27,24 +27,30 @@ const user = {
   actions: {
     // 登录
     Login({ commit }, userInfo) {
-      const username = userInfo.username.trim()
-      return new Promise((resolve, reject) => {
-        login(username, userInfo.password).then(response => {
-          const data = response.data
-          setToken(data.token)
-          commit('SET_TOKEN', data.token)
-          resolve()
-        }).catch(error => {
-          reject(error)
-        })
-      })
+      
+      console.log(userInfo)
+      commit('SET_NAME', userInfo.username)
+      commit('SET_TOKEN', userInfo.username)
+      commit('SET_ROLES', 'admin')
+      commit('SET_AVATAR', "https://i.postimg.cc/NjCfYFvm/20131030040612-Pkd-Uc.jpg")
+      //const username = userInfo.username.trim()
+      // return new Promise((resolve, reject) => {
+      //   login(username, userInfo.password).then(response => {
+      //     const data = response.data
+      //     setToken(data.token)
+      //     commit('SET_TOKEN', data.token)
+      //     resolve()
+      //   }).catch(error => {
+      //     reject(error)
+      //   })
+      // })
     },
 
     // 获取用户信息
     GetInfo({ commit, state }) {
 
       commit('SET_ROLES', 'admin')
-      commit('SET_NAME', "admin")
+      commit('SET_NAME', "Eric")
       commit('SET_AVATAR', "https://i.postimg.cc/NjCfYFvm/20131030040612-Pkd-Uc.jpg")
 
       // return new Promise((resolve, reject) => {

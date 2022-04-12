@@ -25,38 +25,28 @@
             <GmapMarker
               :key="index"
               v-for="(m, index) in locationList"
-              :position="{lat: m.lat, lng:m.lng}"
-              @click="center={lat: m.lat, lng:m.lng}"
+              :position="{lat: parseFloat(m.lat), lng: parseFloat(m.lng)}"
+              @click="center={lat: parseFloat(m.lat), lng:parseFloat(m.lng)}"
             />
           </GmapMap> 
 
-          
-          <!-- <el-input
-            placeholder="Your Location"
-            v-model="location"
-            :disabled="true">
-          </el-input> -->
       </div>
     </el-form>
 
     <el-table :data="locationList" style="width: 100%">
-      <!-- <div v-for="(item,index) in locationList" v-bind:key="index">
+     
+          <el-table-column
+            prop="dateTime"
+            label="DateTime"
+            width="180">
+          </el-table-column>
           
-      </div> -->
-
-      <el-table-column
-        prop = "DateTime"
-        label="Date and Time"
-        width="180">
-      </el-table-column>
-      
-      <el-table-column
-        prop="Location"
-        label="Location"
-        width="180">
-      </el-table-column>
+          <el-table-column
+            prop="location"
+            label="Location"
+            width="180">
+          </el-table-column>
     </el-table>
-    
   </div>
 
   
@@ -65,7 +55,7 @@
 
 <script>
 //import GoogleMap from '@/components/GoogleMap/index'
-import {getAllLocationList, getGoogleLocation} from '@/api/Trip'
+import {getAllLocationList, addATrip} from '@/api/Trip'
 import axios from 'axios'
 // decode time format
 import {parseTime} from '@/utils'
@@ -76,40 +66,40 @@ export default {
   },
   data() {
     return {
-      username:this.$store.getters.name,
+      username: 'Eric',
       center: { lat: 45.508, lng: -73.587 },
       locationList: [
-        {
-          DateTime: '2016-05-04',
-          Location: '王小虎',
-          lat: 38.90813,
-          lng: -77.040279, 
-        }, 
-        {
-          DateTime: '2016-05-01',
-          Location: '王小虎',
-          lat: 38.8959106,
-          lng: -77.0804881, 
-        }, 
-        {
-          DateTime: '2016-05-03',
-          Location: '王小虎',
-          lat: 38.8546609,
-          lng: -77.3358968, 
-        },
-        {
-          DateTime: parseTime(new Date().toString()),
-          Location: '王小虎',
-          lat: 38.855419,
-          lng: -77.0521289, 
-        }
+        // {
+        //   DateTime: '2022-04-10 10:44:39',
+        //   Location: '2982 Gallows Rd, Falls Church, VA 22042, USA',
+        //   lat: 38.90813,
+        //   lng: -77.040279, 
+        // }, 
+        // {
+        //   DateTime: '2022-04-11 14:02:32',
+        //   Location: '1800 N Quinn St, Arlington, VA 22209, USA',
+        //   lat: 38.8959106,
+        //   lng: -77.0804881, 
+        // }, 
+        // {
+        //   DateTime: '2022-04-11 20:05:21',
+        //   Location: '1515 Richmond Hwy, Arlington, VA 22202, USA',
+        //   lat: 38.8546609,
+        //   lng: -77.3358968, 
+        // },
+        // {
+        //   DateTime:'2022-04-12 10:05:21',
+        //   Location: 'Nitze Building, 1740 Massachusetts Ave NW, Washington, DC 20036, USA',
+        //   lat: 38.855419,
+        //   lng: -77.0521289, 
+        // }
       ],
     }
   },
 
   created() {
     getAllLocationList().then(reponse => {
-      console.log(reponse)
+      console.log(reponse.data)
       this.locationList = reponse.data
     })
   },
@@ -132,16 +122,26 @@ export default {
           .then(function (response) {
             const results = response.data.results
             //location list will increase a list of position information
-            that.locationList.push(
-              {
-                DateTime: parseTime(new Date().toString()),
-                Location: results[0].formatted_address,
-                lat: that.center.lat,
-                lng: that.center.lng, 
-                
+            console.log(parseTime(new Date().toString()))
+            console.log(results[0].formatted_address)
+            const newLocation = {
+                userName: 'Eric',
+                dateTime: parseTime(new Date().toString()),
+                location: results[0].formatted_address,
+                lat: that.center.lat.toString(),
+                lng: that.center.lng.toString(), 
               }
-            )
+
+            addATrip(newLocation).then(response => {
+              console.log(response.data)
+            })
+
+            that.locationList.push(newLocation)
         });
+
+        //
+
+
         //this.center = {lat, lng}
         
     },

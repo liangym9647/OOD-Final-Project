@@ -267,10 +267,6 @@
                     <el-col :span="12" v-text="symptom.Sneezingfrequency"></el-col>
                   </el-row>
                 
-                  <el-row>
-                    <el-col :span="10">Severity: </el-col>
-                    <el-col :span="12" v-text="symptom.severity"></el-col>
-                  </el-row>
               
                 <el-col :span="8"><div class="grid-content bg-purple-light"></div></el-col>
                 <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
@@ -470,7 +466,7 @@
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
                     <!-- when choose the label value, it can show the corresponding value, cough1 -->
-                    <el-select v-model="form.Fever.Fever1" placeholder="choose your frequency">
+                    <el-select v-model="form.Fever[0]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -483,7 +479,7 @@
                     <el-col :span="10">2. My fever problem limits my physical activity </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Fever.Fever2" placeholder="choose your frequency">
+                    <el-select v-model="form.Fever[1]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -493,10 +489,10 @@
                   </el-form-item>
 
                   <el-row>
-                    <el-col :span="10">3. My cough is worse when I lie down </el-col>
+                    <el-col :span="10">3. My fever is worse when I lie down </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Fever.Fever3" placeholder="choose your frequency">
+                    <el-select v-model="form.Fever[2]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -509,7 +505,7 @@
                     <el-col :span="10">4. My fever problem upsets me </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Fever.Fever4" placeholder="choose your frequency">
+                    <el-select v-model="form.Fever[3]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -522,7 +518,7 @@
                     <el-col :span="10">5. My fever problem causes me sleepy.  </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Fever.Fever5" placeholder="choose your frequency">
+                    <el-select v-model="form.Fever[4]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -550,8 +546,8 @@
                     <el-col :span="10">1. My Sneezing is servere when the wheater is cold.  </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <!-- when choose the label value, it can show the corresponding value, cough1 -->
-                    <el-select v-model="form.Sneezing.Sneezing1" placeholder="choose your frequency">
+                    <!-- when choose the label value, it can show the corresponding value, Sneezing1 -->
+                    <el-select v-model="form.Sneezing[0]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -564,7 +560,7 @@
                     <el-col :span="10">2. My sneezing problem limits my physical activity. </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Sneezing.Sneezing2" placeholder="choose your frequency">
+                    <el-select v-model="form.Sneezing[1]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -577,7 +573,7 @@
                     <el-col :span="10">3. My sneezing causes me dizzy. </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Sneezing.Sneezing3" placeholder="choose your frequency">
+                    <el-select v-model="form.Sneezing[2]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -590,7 +586,7 @@
                     <el-col :span="10">4. My sneezing causes me headache. </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Sneezing.Sneezing4" placeholder="choose your frequency">
+                    <el-select v-model="form.Sneezing[3]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -603,7 +599,7 @@
                     <el-col :span="10">5. My sneezing problem causes me sleepy.  </el-col>
                   </el-row>
                   <el-form-item label="Frequency " :label-width="formLabelWidth">
-                    <el-select v-model="form.Sneezing.Sneezing5" placeholder="choose your frequency">
+                    <el-select v-model="form.Sneezing[4]" placeholder="choose your frequency">
                       <el-option label="0" value="0"></el-option>
                       <el-option label="1" value="1"></el-option>
                       <el-option label="2" value="2"></el-option>
@@ -675,16 +671,20 @@
               <div class="head">Risk: </div>
             </el-row>
 
+             <el-row>
+                <el-button type="primary" @click="UpdateRisk">Update</el-button>
+            </el-row>
+
             <el-row>
               <el-col :span="10">Risk Percentage: </el-col>
-              <el-col :span="12" v-text="risk.riskpercentage"></el-col>
+              <el-col :span="13" v-text="riskpercentage"></el-col>
             </el-row>
 
             <div class="info">
               
                   <el-row>
                     <el-col :span="10">Risk Level: </el-col>
-                    <el-col :span="12" v-text="risk.risklevel"></el-col>
+                    <el-col :span="12" v-text="risklevel"></el-col>
                   </el-row>
                   
                 <el-col :span="8"><div class="grid-content bg-purple-light"></div></el-col>
@@ -745,10 +745,10 @@ export default {
 
 
       symptom: {
-        Coughfrequency: 'high',
-        Feverfrequency: 'high',
-        Sneezingfrequency: 'high',
-        severity: "high"
+        Coughfrequency: '...',
+        Feverfrequency: '...',
+        Sneezingfrequency: '...',
+        severity: "..."
       },
 
       activity: [{
@@ -801,33 +801,26 @@ export default {
         medicineFrequency:"twice per day"
       },
 
-
-      risk:{
-        riskpercentage:"87%",
-        risklevel:"high",
-      },
       avgCough:0.0,
+      avgFever:0.0,
+      avgSneezing:0.0,
+
+      CoughSum:0.0,
+      FeverSum:0.0,
+      SneezingSum:0.0,
+
+      //risk part
+      riskpercentage:0.0,
+      risklevel:"...",
 
       form: {
           name: '',
           SymptomMonth: '',
           Symptom:'',
-          Cough:['2', '2', '2', '2', '2','2','2', '2','2', '2'],
+          Cough:['0', '0', '0', '0', '0','0','0', '0','0', '0'],
+          Fever:['0', '0', '0', '0', '0'],
+          Sneezing:['0', '0', '0', '0', '0'],
         
-          Fever:{
-            Fever1:'',
-            Fever2:'',
-            Fever3:'',
-            Fever4:'',
-            Fever5:'',
-          },
-          Sneezing:{
-            Sneezing1:'',
-            Sneezing2:'',
-            Sneezing3:'',
-            Sneezing4:'',
-            Sneezing5:'',
-          },
 
           date1: '',
           date2: '',
@@ -918,22 +911,23 @@ export default {
               list1.push(val)
             })
 
-            var CoughSum = 0;
             for (var i=list1.length-1; i>=0; i--) {
-                CoughSum += list1[i];
+                this.CoughSum += list1[i];
             }
 
-            console.log(CoughSum)
-            this.avgCough = (CoughSum / 10)
+            // console.log(CoughSum)
+            this.avgCough = (this.CoughSum / 10)
             if (this.avgCough>=0 && this.avgCough<=1.5){
               this.symptom.Coughfrequency='low';
             }
-            else if (this.avgCough>1.5 && this.avgCough<=3.5){
+            else if (this.avgCough>1.5 && this.avgCough<=3.0){
               this.symptom.Coughfrequency='middle';
             }
             else {
               this.symptom.Coughfrequency='high';
             }
+
+
             done();
           })
           .catch(_ => {});
@@ -944,6 +938,28 @@ export default {
       async FeverClose(done) {
         await this.$confirm('sure to exit?')
           .then(_ => {
+            const listFever = []
+            this.form.Fever.forEach(item => {
+              const valFever = parseInt(item)
+              listFever.push(valFever)
+            })
+
+            for (var i=listFever.length-1; i>=0; i--) {
+                this.FeverSum += listFever[i];
+            }
+
+            // console.log(FeverSum)
+            this.avgFever = (this.FeverSum / 5)
+            if (this.avgFever>=0 && this.avgFever<=1.5){
+              this.symptom.Feverfrequency='low';
+            }
+            else if (this.avgFever>1.5 && this.avgFever<=3.0){
+              this.symptom.Feverfrequency='middle';
+            }
+            else {
+              this.symptom.Feverfrequency='high';
+            }
+
             done();
           })
           .catch(_ => {});
@@ -954,6 +970,28 @@ export default {
       async SneezingClose(done) {
         await this.$confirm('sure to exit?')
           .then(_ => {
+            const listSneezing = []
+            this.form.Sneezing.forEach(item => {
+              const valSneezing = parseInt(item)
+              listSneezing.push(valSneezing)
+            })
+
+            for (var i=listSneezing.length-1; i>=0; i--) {
+                this.SneezingSum += listSneezing[i];
+            }
+
+            // console.log(SneezingSum)
+            this.avgSneezing = (this.SneezingSum / 5)
+            if (this.avgSneezing>=0 && this.avgSneezing<=1.5){
+              this.symptom.Sneezingfrequency='low';
+            }
+            else if (this.avgSneezing>1.5 && this.avgSneezing<=3.0){
+              this.symptom.Sneezingfrequency='middle';
+            }
+            else {
+              this.symptom.Sneezingfrequency='high';
+            }
+
             done();
           })
           .catch(_ => {});
@@ -1026,6 +1064,22 @@ export default {
 
         this.EditCurrentMedicine = false;
       },
+
+      UpdateRisk(){
+        this.riskpercentage=parseInt((((this.avgCough+this.avgFever+this.avgSneezing)/3)/4)*100)
+        if (this.riskpercentage>=0.0 && this.riskpercentage<=37.5){
+          this.risklevel="low";
+        }
+        else if (this.riskpercentage>37.5 && this.riskpercentage<=75){
+          this.risklevel='middle';
+        }
+        else{
+          this.risklevel='high';
+        }
+
+      }
+
+
 
       
     },
