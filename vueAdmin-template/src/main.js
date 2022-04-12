@@ -15,7 +15,17 @@ import store from './store'
 import '@/icons' // icon
 //import '@/permission'
 
+//GoogleMap
+import * as VueGoogleMaps from 'vue2-google-maps'
+
 Vue.use(ElementUI, { locale })
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyC9Rfu135xnIPkdR_Yaw_w6a-NwuPfFGKY',
+    libraries: 'places',
+  }
+});
 
 Vue.config.productionTip = false
 

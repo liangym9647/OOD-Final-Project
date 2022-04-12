@@ -40,40 +40,40 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/home', //path
+    path: '/trip', //path
     component: Layout,
-    redirect: '/home/index', //when click the widget, the website URL will change, format: localhost:XXXX + redirect
+    redirect: '/trip/index', //when click the widget, the website URL will change, format: localhost:XXXX + redirect
     children: [
       {
-        path: 'home',
-        name: 'Home',
-        component: () => import('@/views/home/index'),
-        meta: { title: 'Home', icon: 'form' }
+        path: 'trip',
+        name: 'Trip',
+        component: () => import('@/views/trip/index'),
+        meta: { title: 'Trip', icon: 'form' }
       }
     ]
   },
 
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table',
+  //   name: 'Example',
+  //   meta: { title: 'Example', icon: 'example' },
+  //   children: [
+  //     {
+  //       path: 'table',
+  //       name: 'Table',
+  //       component: () => import('@/views/table/index'),
+  //       meta: { title: 'Table', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'Tree',
+  //       component: () => import('@/views/tree/index'),
+  //       meta: { title: 'Tree', icon: 'tree' }
+  //     }
+  //   ]
+  // },
 
   {
     path: '/news',

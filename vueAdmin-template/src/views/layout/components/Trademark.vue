@@ -1,6 +1,6 @@
 <template>
   <footer class='trademark'>
-    Copyright © 2088-2099 XX技术有限公司
+    Copyright © COVID19-OOD
   </footer>
 </template>
 <script>

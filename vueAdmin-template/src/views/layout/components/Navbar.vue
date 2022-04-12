@@ -7,7 +7,7 @@
         <div class="avatar-wrapper">
           <span v-text="name" class="name"></span>
           <i class="el-icon-caret-bottom"></i>
-          <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+          <img class="user-avatar" src="https://i.postimg.cc/NjCfYFvm/20131030040612-Pkd-Uc.jpg?imageView2/1/w/80/h/80">
         </div>
         <el-dropdown-menu class="user-dropdown" slot="dropdown">
           <router-link class="inlineBlock" to="/">
@@ -47,9 +47,10 @@ export default {
       this.$store.dispatch('ToggleSideBar')
     },
     logout() {
-      this.$store.dispatch('LogOut').then(() => {
-        location.reload() // 为了重新实例化vue-router对象 避免bug
-      })
+      this.$router.push("/login")
+      // this.$store.dispatch('LogOut').then(() => {
+      //   location.reload() // 为了重新实例化vue-router对象 避免bug
+      // })
     }
   }
 }

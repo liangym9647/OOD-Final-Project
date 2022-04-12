@@ -42,17 +42,22 @@ const user = {
 
     // 获取用户信息
     GetInfo({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        getInfo(state.token).then(response => {
-          const data = response.data
-          commit('SET_ROLES', data.roles)
-          commit('SET_NAME', data.name)
-          commit('SET_AVATAR', data.avatar)
-          resolve(response)
-        }).catch(error => {
-          reject(error)
-        })
-      })
+
+      commit('SET_ROLES', 'admin')
+      commit('SET_NAME', "admin")
+      commit('SET_AVATAR', "https://i.postimg.cc/NjCfYFvm/20131030040612-Pkd-Uc.jpg")
+
+      // return new Promise((resolve, reject) => {
+      //   getInfo(state.token).then(response => {
+      //     const data = response.data
+      //     commit('SET_ROLES', data.roles)
+      //     commit('SET_NAME', data.name)
+      //     commit('SET_AVATAR', data.avatar)
+      //     resolve(response)
+      //   }).catch(error => {
+      //     reject(error)
+      //   })
+      // })
     },
 
     // 登出

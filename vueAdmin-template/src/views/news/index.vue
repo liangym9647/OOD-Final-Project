@@ -3,9 +3,10 @@
     <el-form ref="form" :model="form" label-width="120px">
       <el-form-item label="Friends:">
 
-        <el-select v-model="form.region" placeholder="please select your friend">
-          <el-option label="Zone one" value="shanghai"></el-option>
-          <el-option label="Zone two" value="beijing"></el-option>
+        <el-select v-model="form.friends" placeholder="please select your friend">
+          <el-option label="Bo Liu" value="Bo Liu"></el-option>
+          <el-option label="Qiaozhu Qiang" value="Qiaozhu Qiang"></el-option>
+          <el-option label="Yuxiao Cai" value="Yuxiao Cai"></el-option>
         </el-select>
 
       </el-form-item>
@@ -15,7 +16,7 @@
       </el-form-item>
 
         <el-table
-          :data="form.RestaurantData"
+          :data="form.FriendsNewsData"
           style="width: 100%">
           <el-table-column
             prop="Date"
@@ -72,42 +73,61 @@
 </template>
 
 <script>
+
+import { getNews } from '@/api/News'
+
+
+
+
 export default {
   data() {
     return {
       form: {
         name: '',
-        region: '',
+        friends: '',
         date1: '',
         date2: '',
         delivery: false,
         type: [],
         resource: '',
         desc: '',
-        RestaurantData:[{
-            Date: '2022-04-01',
+        FriendsNewsData:[{
+            Date: '2022-01-04',
+            COVIDResult: 'negative',
+            News: 'I play soccer with my friends today.'
+          }, {
+            Date: '2022-02-03',
+            COVIDResult: 'negative',
+            News: 'I have a picnic with my families'
+          }, {
+            Date: '2022-03-04',
             COVIDResult: 'positive',
-            News: 'Washington Columbia Street 12th'
+            News: 'I get sick today'
           }, {
-            Date: '2016-05-04',
-            COVIDResult: '王小虎',
-            News: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            Date: '2016-05-01',
-            COVIDResult: '王小虎',
-            News: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            Date: '2016-05-03',
-            COVIDResult: '王小虎',
-            News: '上海市普陀区金沙江路 1516 弄'
+            Date: '2022-03-23',
+            COVIDResult: 'negative',
+            News: 'I feel better today'
           }],
         YourNewsDate:'',
         YourCOVIDResult:'1',
+        list:{
+
+        },
 
 
       }
     }
   },
+
+  // request data
+  // when the news UI is open, it will show all initial data on the UI 
+  created() {
+    //response.data: get data
+    getNews().then(response => {
+      this.list = response.data // all data from the function getDashboard will be updated into the list
+    })
+  }, 
+
   methods: {
     onSubmit() {
       this.$message('submit!')

@@ -11,11 +11,22 @@ module.exports = {
     assetsPublicPath: "/",
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',//要跨域的域名
+        target: 'http://10.0.0.54:8080',//要跨域的域名
         secure: false, //如果是https接口，如要配置此参数
         changeOrigin: true,//允许跨域
         pathRewrite: {
           "^/api": "" 
+        }
+      },
+      '/google': {
+        target: 'https://maps.googleapis.com',//要跨域的域名
+        secure: false, //如果是https接口，如要配置此参数
+        changeOrigin: true,//允许跨域
+        pathRewrite: {
+          "^/google": "" 
+        },
+        headers:{
+          Referer: 'https://maps.googleapis.com'
         }
       }
     },

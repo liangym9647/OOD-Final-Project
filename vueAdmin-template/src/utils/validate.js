@@ -3,7 +3,7 @@
  */
 
 export function isvalidUsername(str) {
-  const valid_map = ['admin', 'editor']
+  const valid_map = ['admin', 'Emma', 'Eric']
   return valid_map.indexOf(str.trim()) >= 0
 }
 
@@ -13,7 +13,7 @@ export function validateURL(textval) {
   return urlregex.test(textval)
 }
 
-/* 小写字母*/
+/* 小写字母*/ 
 export function validateLowerCase(str) {
   const reg = /^[a-z]+$/
   return reg.test(str)
