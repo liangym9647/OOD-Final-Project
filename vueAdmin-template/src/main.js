@@ -22,7 +22,8 @@ Vue.use(ElementUI, { locale })
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyC9Rfu135xnIPkdR_Yaw_w6a-NwuPfFGKY',
+    //please type your API key to use google map
+    key: '',
     libraries: 'places',
   }
 });
